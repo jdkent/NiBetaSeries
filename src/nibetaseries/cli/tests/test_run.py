@@ -26,14 +26,16 @@ def test_conditional_arguments(monkeypatch):
     # remove the lut arguments
     no_lut = [a for a in parser_args if a != "-l" and a != "lut"]
     monkeypatch.setattr(sys, 'argv', no_lut)
-    with pytest.raises(SystemExit):
+    with pytest.raises(SystemExit) as no_lut_err:
         get_parser().parse_args(no_lut)
+    assert no_lut_err.value.code == 2
 
     # remove the atlas-img arguments
     no_img = [a for a in parser_args if a != "-a" and a != "img"]
     monkeypatch.setattr(sys, 'argv', no_img)
-    with pytest.raises(SystemExit):
+    with pytest.raises(SystemExit) as no_img_err:
         get_parser().parse_args(no_img)
+    assert no_img_err.value.code == 2
 
 
 @pytest.mark.parametrize("estimator,fir_delays,hrf_model,part_label",
