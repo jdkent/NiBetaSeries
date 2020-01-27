@@ -176,7 +176,7 @@ It is released under the [CC0]\
         )
 
         single_subject_wf.config['execution']['crashdump_dir'] = (
-            os.path.join(output_dir, "sub-" + subject_label, 'log')
+            os.path.join(output_dir, "nibetaseries", "sub-" + subject_label, 'log')
         )
 
         for node in single_subject_wf._get_all_nodes():
