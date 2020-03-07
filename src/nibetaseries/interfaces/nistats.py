@@ -68,7 +68,7 @@ class LSSBetaSeries(NistatsBaseInterface, SimpleInterface):
             hrf_model=self.inputs.hrf_model,
             mask=self.inputs.mask_file,
             smoothing_fwhm=self.inputs.smoothing_kernel,
-            signal_scaling=0,
+            signal_scaling=False,
             high_pass=self.inputs.high_pass,
             drift_model='cosine',
             verbose=1,
@@ -175,7 +175,7 @@ class LSABetaSeries(NistatsBaseInterface, SimpleInterface):
             hrf_model=self.inputs.hrf_model,
             mask=self.inputs.mask_file,
             smoothing_fwhm=self.inputs.smoothing_kernel,
-            signal_scaling=0,
+            signal_scaling=False,
             high_pass=self.inputs.high_pass,
             drift_model='cosine',
             verbose=1
